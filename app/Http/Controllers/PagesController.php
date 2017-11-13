@@ -6,10 +6,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function article(){
-        return view('pages.article');
-    }
-
+    
     public function discuss(){
         return view('pages.discuss');
     }
