@@ -20,7 +20,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/')}}">Home</a></li>
-                        <li><a href="{{url('/article')}}">Article</a></li>
+                        <li><a href="{{url('/articles')}}">Article</a></li>
                         <li><a href="{{url('/discuss')}}">Discussions</a></li>
                         <li><a href="{{url('/locker')}}">Digital Locker</a></li>
                         <li><a href="{{url('/jobs')}}">Job Search</a></li>

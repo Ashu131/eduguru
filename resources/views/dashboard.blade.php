@@ -14,8 +14,9 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @yield('article')
                 </div>
+                
             </div>
         </div>
     </div>

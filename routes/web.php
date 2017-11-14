@@ -19,7 +19,7 @@ Auth::routes();
 Route::get('/dashboard', 'DashboardController@index');
 
 // Nav pages 
-Route::get('/article','ArticlesController@index');
+Route::resource('articles', 'pages\ArticlesController');
 Route::get('/discuss','PagesController@discuss');
 Route::get('/locker','PagesController@locker');
 Route::get('/jobs','PagesController@job');
