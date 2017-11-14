@@ -63,7 +63,7 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        return view('web.article.show');
+        return view('web.article.show_article');
     }
 
     /**
