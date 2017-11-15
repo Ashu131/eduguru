@@ -11,9 +11,13 @@
                 <p>SubCategory:{{$article->subcat}}</p>
                 <p>Detail:{!!$article->body!!}</p>
                 <p>Written On:{{$article->created_at}}</p>
+                <a href="/articles/{{$article->id}}" class="btn btn-info">Full Article</a>
             </div>
             </div>
         <div class="col-sm-3"></div></div>
         @endforeach
+        <div class="center-block">{{ $data->links() }}</div>
+    @else
+        <div class="well">No Data Found</div>
     @endif
 @endsection

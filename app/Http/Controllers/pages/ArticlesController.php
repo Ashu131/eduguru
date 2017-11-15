@@ -16,7 +16,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $data= Article::all();
+        $data= Article::orderBy('created_at','desc')->paginate(2);
         return view('web.article.article')->with('data', $data);
     }
 
@@ -65,7 +65,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        return view('web.article.show_article');
+        $data= Article::find($id);
+        return view('web.article.show_article')->with('article', $data);
     }
 
     /**
