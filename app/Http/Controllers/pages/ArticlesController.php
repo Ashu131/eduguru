@@ -16,7 +16,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return view('web.article.article');
+        $data= Article::all();
+        return view('web.article.article')->with('data', $data);
     }
 
     /**
@@ -53,6 +54,7 @@ class ArticlesController extends Controller
         // $article->file = ('image');
         $article->body = $request->input('body');
         $article->save();
+        return redirect('/articles');
     }
 
     /**
