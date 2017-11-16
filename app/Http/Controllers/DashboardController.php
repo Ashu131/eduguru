@@ -24,7 +24,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $article= DB::select('Select * FROM articles');
-        return view('dashboard')->with('article', $article);
+        $article= DB::select('Select * FROM articles ORDER BY created_at DESC');
+        return view('dashboard')->with('user_article', $article);
     }
 }

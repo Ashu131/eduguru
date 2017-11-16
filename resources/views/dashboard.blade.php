@@ -12,10 +12,10 @@
                 <div class="panel-body">
                     @yield('article')
 
-                    @if(count($article)>0)
-                        @foreach($article as $articles)
-                        <div class="row"><div class="col-sm-3"></div>
-                            <div class="col-sm-6 panel" style="border:2px solid black">
+                    @if(!empty($user_article) && count($user_article)>0)
+                        @foreach($user_article as $articles)
+                        <div class="row">
+                            <div class="col-sm-12" style="border:2px solid black">
                             <div class="panel-body">
                             <h2>Title:{{$articles->title}}</h2>
                                 <p>Category:{{$articles->category}}</p>
@@ -25,14 +25,14 @@
                                 <a href="/articles/{{$articles->id}}" class="btn btn-info">Full Article</a>
                             </div>
                             </div>
-                        <div class="col-sm-3"></div></div>
+                        </div>
                         @endforeach
                         
                     @else
                         <div class="well">No Data Found</div>
                     @endif
                     
-                </div>
+                
             </div>
         </div>
         
