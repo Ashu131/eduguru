@@ -60,12 +60,11 @@
                                 
                                 <select id="role" name="role" class="form-control" required>
                                     <option value="0">Select</option>
-                                    <option value="Sub Admin">Sub Admin</option>
-                                    <option value="School Admin">School Admin</option>
-                                    <option value="School Sub Admins">School Sub Admins</option>
                                     <option value="Father">Father</option>
                                     <option value="Mother">Mother</option>
                                     <option value="Kid">Kid</option>
+                                    <option value="School Admin">School Admin</option>
+                                    <option value="School Sub Admins">School Sub Admins</option>
                                     <option value="Tutor">Tutor</option>
                                     <option value="Professor">Professor</option>
                                     <option value="Teacher">Teacher</option>

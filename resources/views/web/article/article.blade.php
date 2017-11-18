@@ -3,7 +3,8 @@
 @section('content')
     @if(count($data)>0)
         @foreach($data as $article)
-        <div class="row"><div class="col-sm-3"></div>
+        <div class="row">
+        <div class="col-sm-3"></div>
             <div class="col-sm-6 panel" style="border:2px solid black">
             <div class="panel-body">
             <h2>Title:{{$article->title}}</h2>
@@ -14,9 +15,10 @@
                 <a href="/articles/{{$article->id}}" class="btn btn-info">Full Article</a>
             </div>
             </div>
-        <div class="col-sm-3"></div></div>
+        <div class="col-sm-3"></div>
+        </div>
         @endforeach
-        <div class="center-block">{{ $data->links() }}</div>
+        <div class="text-center">{{ $data->links() }}</div>
     @else
         <div class="well">No Data Found</div>
     @endif

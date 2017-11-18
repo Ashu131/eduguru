@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+
     <div class="row">
         <div class="col-md-3">
             @include('include.user_leftbar')
@@ -27,7 +28,6 @@
                             </div>
                         </div>
                         @endforeach
-                        
                     @else
                         <div class="well">No Data Found</div>
                     @endif
