@@ -11,7 +11,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
                 <div class="panel-body">
-                    @yield('article')
+                    @yield('article') {{-- coming from web/article/create_article  --}}
 
                     @if(!empty($user_article) && count($user_article)>0)
                         @foreach($user_article as $articles)
@@ -28,8 +28,6 @@
                             </div>
                         </div>
                         @endforeach
-                    @else
-                        <div class="well">No Data Found</div>
                     @endif
                     
                 

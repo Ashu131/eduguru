@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    @if(count($article)>0)
+    @if(!empty($article) count($article)>0)
         <div class="panel panel-primary">
             <div class="panel-body">
                 <h2>Title:{{$article->title}}</h2>

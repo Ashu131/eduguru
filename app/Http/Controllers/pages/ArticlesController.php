@@ -5,6 +5,7 @@ namespace App\Http\Controllers\pages;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Article;
+use App\user;
 use DB;
 
 class ArticlesController extends Controller
@@ -53,8 +54,9 @@ class ArticlesController extends Controller
         $article->subcat = $request->input('subcat');
         // $article->file = ('image');
         $article->body = $request->input('body');
+        $article->user_id=auth()->user()->id;
         $article->save();
-        return redirect('/articles');
+        return redirect('/dashboard');
     }
 
     /**
