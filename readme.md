@@ -1,33 +1,33 @@
-# Convert Images to Webp
-Search for images in subdirectories recursively, will create the same structure in **Output** folder  
-By default images will be converted in four compressions(25, 50, 75, 100).
-For Example.:
-> Root directory- `files/pictures/`  
-Input Directory- `files/pictures/images`  
-Output Directory- `converted/`  
+# Webp Image Workflow
+- Check if `$conf['webpStatus']` in _settings.php_ is set to `true`
+- Then check if client's Browser support **WEBP** Images (`$browser->is_webp_supported()`)
+- Check Browser
+    - Then check if Browser is Either **Chrome** OR **Firefox** and on **_Desktop_**.
+        - Show Images compressed to **50%**
+    - Then check if Browser is Either **Chrome** OR **Firefox** and on **_Mobile_**.
+        - Show Images compressed to **25%**
 
-Output Will be.:  
-`converted/25/images/`  
-`converted/50/images/`  
-`converted/75/images/`  
-`converted/100/images/`  
+# How to call webp Image on a page
+First get webp Image
+> `$webp_image_uri = getWebpImage($image_uri);`
 
-## Requirements
-This package requires [Intervention Image Package](http://image.intervention.io/)  
-> Run `composer install`
-## How to convert images to webp
+Update `img` element  
+- Set webp image on `data-src`
+    - `data-src="<?php echo file_create_url( $webp_image_uri); >?"`
 
-Initiate `AutoConverter.php` Class  
-> `$convert= new AutoConverter($root_directory, $image_directory, $output_directory, false);`  
+# Webp not found Error
+If the webp image not found `setDefaultImageOnDataSrc()` js function will be called and will replace the `data-src` from `data-img`  
 
-Class `AutoConverter.php` Initiation require three parameters, fourth parameter is `true` by default
-- Root Directory
-- Image Directory(without forward slash `folder/pictures`)
-- Output Directory
-- Boolean(default:`true`)
-    - `true` to convert new files only
-    - `false` to convert all files
+Add `data-img` and `onerror` attributes on `img` element
+> `data-img="<?php echo file_create_url($default_image_uri); ?>"`  
+`onerror="setDefaultImageOnDataSrc(this)"`
 
-Call `convert()` method on the class Instance  
-> `$convert->convert();`
+where `data-img` attribute have default jpg/jpeg image uri
 
+# Webp working Setup
+- `BrowserCheck.php` in _'sites/all/libraries/browser/BrowserCheck.php'_
+- In _sites/all/modules/custom/vaidam_search/vaidam_search.module_
+    - require `BrowserCheck.php`
+    - `getWebpImage()` function created here
+- In _sites/all/themes/vaidam/v0/dist/js/vaidam.js_
+    - `setDefaultImageOnDataSrc(this)` function
